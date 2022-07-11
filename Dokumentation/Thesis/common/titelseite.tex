@@ -1,0 +1,54 @@
+% Dies ist die Titelseite.
+
+
+%----Stil dieser Seite----------------------------------------------------------
+\thispagestyle{plain}      % Kopfzeile bleibt leer
+
+%----Beginn der Titelseite------------------------------------------------------
+\begin{titlepage}
+   
+%----eingebundenes Logo der TU--------------------------------------------------
+\setlength{\unitlength}{1mm}
+  \begin{picture}(00,00)(+25,-04)
+  	\color{tuRed}
+   % \put(055,000){\line(1,0){150}}
+    \put(005,001){\includegraphics[width=6.3cm]{./images/TUBraunschweig.jpg}}
+   \put(150,001){\includegraphics[width=7cm,height=2.4cm,keepaspectratio]{./images/institutsLogo.png}}
+  \end{picture}\\[3ex]
+\hspace*{-2cm}
+
+
+%----zentrierte Ausrichtung über die gesamte Seite----------------------------
+\begin{center}
+
+%----Titel des Abschlusses-------
+{\relsize{3}{\textbf{\textsc{\thesis}}}}\\[5ex]
+
+%----Titel des Thesis ---------
+{\relsize{6}{\textbf{\bigskip{Machbarkeitsanalyse zur}}}}\\[0ex]
+
+{\relsize{6}{\textbf{\bigskip{Klassifikation von Lernstilen mit }}}}\\[0ex]
+
+{\relsize{6}{\textbf{\bigskip{der Hilfe eines}}}}\\[0ex]
+
+{\relsize{6}{\textbf{\bigskip{Conversational Agents}}}}\\[2ex]
+
+\vspace{1cm}
+Freie wissenschaftliche Arbeit zur Erlangung des akademischen Grades\\
+\textit{Bachelor of Science}\\
+an der Technischen Universität Braunschweig, \institute. \\
+
+\vspace{4cm}
+
+\setlength{\unitlength}{2mm}
+  \begin{picture}(00,00)(+25,-04)
+    \put(005,000){\includegraphics[width=7.5cm, height = 2.5cm]{./images/institutsLogoThesis.png}}
+  \end{picture}\\[3ex]
+
+
+
+\input{common/person} % enthält Tabelle der Praktikumsteilnehmer
+
+
+\end{center}
+\end{titlepage}

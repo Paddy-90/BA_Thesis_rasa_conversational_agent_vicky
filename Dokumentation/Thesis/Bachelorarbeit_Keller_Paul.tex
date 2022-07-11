@@ -1,0 +1,134 @@
+
+
+\input{common/layout.tex}         
+\newcommand{\dokumentTitel}{Thesis}
+\input{common/config.tex}
+
+\clearpairofpagestyles
+\ihead{\leftmark}
+\ohead{\ifstr{\leftmark}{\rightbotmark}{}{\rightbotmark}}
+\cfoot*{\pagemark}
+\renewcommand*\chapterpagestyle{scrheadings}
+
+%Bibimport
+\addbibresource{Literatur.bib}
+%Style of cite
+\ExecuteBibliographyOptions{maxbibnames=99, maxcitenames=3}
+\makeatletter
+%Listen linksbündig
+\renewenvironment{itemize}{\begin{list}{$\bullet$} {\leftmargin1.5em \labelsep1em
+  \rightmargin0cm \parsep0.5ex plus0.2ex minus0.1ex \itemsep1ex plus0.2ex}}{\end{list}}
+
+
+
+%fussnote fortlaufend 
+\counterwithout{footnote}{chapter}
+\newrobustcmd*{\parentexttrack}[1]{%
+  \begingroup
+  \blx@blxinit
+  \blx@setsfcodes
+  \blx@bibopenparen#1\blx@bibcloseparen
+  \endgroup}
+
+\AtEveryCite{%
+  \let\parentext=\parentexttrack%
+  \let\bibopenparen=\bibopenbracket%
+  \let\bibcloseparen=\bibclosebracket}
+
+\makeatother
+% tauscht und in &
+\DeclareDelimFormat{finalnamedelim}{\addspace\&\space}
+
+%--- |Einrueckung der Fussnoten |--------------------------
+\deffootnote{1em}{1em}{%
+\textsuperscript{\thefootnotemark\ }
+}
+
+%Autor fett
+\renewcommand{\labelnamepunct}{\addcolon\space}
+\DeclareFieldFormat{url}{%
+	\text{In}\addcolon\space\url{#1}
+}
+%--------Änderung der URL Beschreibung---------
+\DefineBibliographyStrings{german}{%
+urlseen = {aufgerufen am:},
+}
+      
+%---URL gleiche Schriftart wie Text------
+\urlstyle{same}
+
+% Title nicht kursiv
+\DeclareFieldFormat{title}{{#1}}	
+\DeclareFieldFormat[article]{title}{#1}
+\DeclareFieldFormat{journaltitle}{#1}
+\DeclareFieldFormat[book]{title}{{#1}}
+\DeclareFieldFormat[incollection]{title}{{#1}}
+\DeclareFieldFormat[inproceedings]{title}{{#1}}
+\DeclareFieldFormat[misc]{title}{{#1}}
+\DeclareFieldFormat[inbook]{title}{{#1}}
+\DeclareFieldFormat[phdthesis]{title}{{#1}}
+\setlength\bibitemsep{12pt}  % Abstand zwischen 2 Einträgen im LitVZ
+\setlength{\bibhang}{2em} % Einrücken 2. Zeile im LitVZ
+\usepackage{xpatch}
+\xpretobibmacro{author}{\begingroup\bfseries}{}{}
+\xapptobibmacro{author}{\endgroup}{}
+ 
+%----------------------------------------------------------
+
+\usepackage{pdfpages}
+%------Beginn des Gesamtdokumentes----------------------------------------------
+\begin{document}
+\include{common/titelseite}                   
+\clearpage
+
+\pagenumbering{Roman}
+\setcounter{page}{2}
+\renewcommand\abstractname{Abstract}  
+\input{Verzeichnisse/Abstract}
+%\addcontentsline{toc}{chapter}{Abstract} 
+\clearpage
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+\tableofcontents                          % Inhaltsverzeichnis wird automatisch erstellt
+\clearpage
+\input{Verzeichnisse/Abkürzungsverzeichnis}
+%\addcontentsline{toc}{chapter}{Abkürzungsverzeichnis} 
+
+\clearpage 
+\begingroup
+\renewcommand*{\addvspace}[1]{}
+\listoffigures\listoftables
+\endgroup
+\clearpage
+\pagenumbering{arabic}  
+
+
+
+
+%----Kapitel der Thesis--------------------
+\include{Chapters/Einleitung}
+\include{Chapters/Theoretische Grundlagen des Lernens}
+\include{Chapters/Conversational Artificial Intelligence}
+\include{Chapters/Prototyp}
+\include{Chapters/Auswertung}
+\include{Chapters/Zusammenfassung und Ausblick}
+
+
+%------Kapitel Ende-----------------------
+
+
+\printbibliography[title={Literaturverzeichnis}] 
+\clearpage 
+
+\input{Verzeichnisse/Versicherung}
+\addcontentsline{toc}{chapter}{Eidesstaatliche Erklärung}  
+\clearpage 
+\appendix       % Beginn des Anhangs
+\include{Chapters/appendix}
+
+
+% Die eidesstattliche Erklärung mit Unterschrift
+\clearpage 
+
+%------Ende des Dokumentes------------------------------------------------------
+\end{document}

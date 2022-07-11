@@ -1,0 +1,76 @@
+%Hier sind alle Einstellungen enthalten, die sich auf das Seiten- und
+%Dokumentenlayout beziehen
+
+\documentclass[12pt,DIV12,toc=bibliography, abstract=true,toc=listof,german,oneside,titlepage,parskip=half,headings=normal,captions=tableheading,final, openany]{scrreprt}               
+
+
+\input{common/packages}      % enthält eingebundene Packete
+
+%------Seitenränder-------------------------------------------------------------
+\geometry{verbose,                     % zeigt die eingestellten Parameter beim
+                                       % Latexlauf an
+      paper=a4paper,                   % Papierformat
+      top=25mm,                        % Rand oben
+      left=25mm,                       % Rand links
+      right=25mm,                      % Rand rechts
+      bottom=45mm,                     % Rand unten
+      pdftex                           % schreibt das Papierformat in die
+                                       % Ausgabe damit Ausgabeprogramm
+                                       % Papiergröße erkennt
+  }
+
+  %Abstand Kopfzeile und Chaptertitel
+%\renewcommand*{\chapterheadstartvskip}{\vspace*{-\topskip}} 
+\renewcommand*{\chapterheadstartvskip}{\vspace*{1mm}} 
+\renewcommand*{\chapterheadendvskip}{}
+%Seiten gleich lang
+%\flushbottom
+%Abstand letzte Zeile Fuß
+\setlength{\footskip}{15mm} %Abstand von letzter Zeile zum Fuß
+\setlength{\skip\footins}{10mm}
+%Abstand Literaturverzeichnis
+\setlength{\bibitemsep}{0.5\baselineskip}
+%Seitenlayout
+\onehalfspace        % 1,5-facher Abstand
+
+%------Kopf- und Fußzeilen -----------------------------------------------------
+\pagestyle{scrheadings}
+
+%------Kopf- und Fußzeile auch auf Kapitelanfangsseiten ------------------------
+\renewcommand*{\chapterpagestyle}{scrheadings}
+
+%------Schriftform der Kopfzeile -----------------------------------------------
+\renewcommand{\headfont}{\normalfont}
+
+%----Spezielle Befehle
+\newcommand{\lfk}[1]{$\langle LF#1\rangle$}
+
+%----Farben
+\definecolor{tubsRed}{cmyk}{0.1,1.0,0.8,0.0}
+\definecolor{tuRed}{cmyk}{0.1,1.0,0.8,0.0}
+
+%------Kopfzeile----------------------------------------------------------------
+\setheadsepline{1pt}[\color{tuRed}]
+\setlength{\headheight}{10mm}        % Höhe der Kopfzeile
+%\ihead{\large{\textsc{\thesis}}\\    % Text in der linken Box  
+ %      \small{\thesisTitel}}
+\chead{}                            % Text in der mittleren Box
+
+
+
+%----Fusszeile
+\setfootsepline{1pt}[\color{tuRed}]
+\cfoot{}                            % Text in mittlerer Box
+\ofoot{\pagemark}                    % Seitenzahl in rechter Box
+
+
+
+%------Labels mit eigenem Text für \ref ----------------------------------------
+\makeatletter
+\def\namedlabel#1#2{\begingroup
+#2%
+\def\@currentlabel{#2}%
+\phantomsection\label{#1}\endgroup
+}
+\makeatother
+
