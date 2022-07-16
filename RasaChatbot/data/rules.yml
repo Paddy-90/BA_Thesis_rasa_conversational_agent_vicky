@@ -194,3 +194,170 @@ rules:
   - intent: nlu_fallback
   - action: utter_please_rephrase
 
+
+#Interruption
+- rule: Weather
+  steps:
+  - intent: chitchat_answerweather
+  - action: action_chitchat
+
+#Interruption
+- rule: Bot does not answer
+  steps:
+  - intent: answerBot
+  - action: action_answer_bot
+
+#Interruption
+- rule: killerphrases
+  steps:
+  - intent: ask_killerphrases
+  - action: action_killerphrases
+
+#Interruption
+- rule: repeat the last question from the bot
+  steps:
+  - intent: ask_last_question
+  - action: action_repeat_last_quest
+
+#Interruption
+- rule: explain definition of learningstyle
+  steps:
+  - intent: ask_learningstyle
+  - action: action_learningstyle
+
+#Interruption
+- rule: ask the bot where he lives
+  steps:
+  - intent: ask_residence
+  - action: action_your_residence
+
+#Interruption
+- rule: ask the bot if he is a real bot
+  steps:
+  - intent: bot_challenge
+  - action: action_asked_bot
+
+#Interruption
+- rule: ask the bot how old he is
+  steps:
+  - intent: chitchat_age
+  - action: action_chitchat
+
+#Interruption
+- rule: ask the bot how the weather is
+  steps:
+  - intent: chitchat_answerweather
+  - action: action_chitchat
+
+#Interruption
+- rule: user gives the bot compliments
+  steps:
+  - intent: chitchat_compliment
+  - action: action_chitchat
+
+#Interruption
+- rule: confirm
+  steps:
+  - intent: chitchat_confirm
+  - action: action_chitchat
+
+#Interruption
+- rule: age 
+  steps:
+  - intent: chitchat_giveage
+  - action: action_chitchat
+
+#Interruption
+- rule: language 
+  steps:
+  - intent: chitchat_givelanguages
+  - action: action_chitchat
+
+#Interruption
+- rule: how are you 
+  steps:
+  - intent: chitchat_howareyou
+  - action: action_chitchat
+
+
+#Interruption
+- rule: insult
+  steps:
+  - intent: chitchat_insult
+  - action: action_chitchat
+
+
+#Interruption
+- rule: joke
+  steps:
+  - intent: chitchat_joke
+  - action: action_chitchat
+
+#Interruption
+- rule: languagecourses
+  steps:
+  - intent: chitchat_languagecourses
+  - action: action_chitchat
+
+#Interruption
+- rule: other
+  steps:
+  - intent: chitchat_other
+  - action: action_chitchat
+
+
+
+#Interruption
+- rule: skills of the bot
+  steps:
+  - intent: chitchat_skills
+  - action: action_chitchat
+
+#Interruption
+- rule: user tries to stopp the bot
+  steps:
+  - intent: chitchat_stop
+  - action: action_chitchat
+
+#Interruption
+- rule: weather
+  steps:
+  - intent: chitchat_weather
+  - action: action_chitchat
+
+#Interruption
+- rule: name of bot
+  steps:
+  - intent: chitchat_whatsyourname
+  - action: action_chitchat
+
+
+#negation
+- rule: negation
+  steps:
+  - intent: chitchat_whynegation
+  - action: action_chitchat
+
+#xmas
+- rule: xmas
+  steps:
+  - intent: chitchat_xmas
+  - action: action_chitchat
+
+#interruption
+- rule: interruption
+  steps:
+  - intent: interruption
+  - action: action_chitchat
+
+#time
+- rule: time
+  steps:
+  - intent: time
+  - action: action_time
+
+#user_unknown
+- rule: user_unknown
+  steps:
+  - intent: user_unknown
+  - action: action_user_unknown

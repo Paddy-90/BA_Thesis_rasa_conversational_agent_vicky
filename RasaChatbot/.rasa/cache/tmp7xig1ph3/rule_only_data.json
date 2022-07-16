@@ -1,0 +1,8 @@
+{
+  "rule_only_slots": [],
+  "rule_only_loops": [
+    "elicitation_form",
+    "name_form",
+    "quest_game_form_part_one"
+  ]
+}
